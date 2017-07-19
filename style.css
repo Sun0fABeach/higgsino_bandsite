@@ -55,7 +55,6 @@ body {
 
 #logo {
   position: absolute;
-  cursor: pointer;
   width: 40%;
   height: auto;
   opacity: 0;
