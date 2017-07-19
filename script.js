@@ -8,19 +8,10 @@ $(window).on('load', function() {
     $('#background-pic').css('opacity', '1');
 
 
-    // launch animations of the backdrop
-    function next_animation() {
-        $('#background').css('animation', rotate_animation());
-    }
-    next_animation();
-    $('#background').on('animationend', next_animation);
-
-
-    // click on logo: open content box, hide logo and deactivate animations
+    // click on logo: open content box, hide logo
     function open_content_box() {
         display_content_box();
         hide_logo();
-        $('#background').css('animation', '');
     }
     $('#logo').one('click', open_content_box);
 
@@ -32,13 +23,11 @@ $(window).on('load', function() {
     });
 
 
-    // on close: hide content box, show logo, reactivate animations
+    // on close: hide content box, show logo
     $('#close-target').click(function() {
         hide_content_box();
         display_logo();
         $('#logo').one('click', open_content_box);
-        next_animation();
-        $('#background').on('animationend', next_animation);
     });
 
 
@@ -60,17 +49,6 @@ $(window).on('load', function() {
     });
 });
 
-
-var animations = [
-    'zoom 700ms ease-in 9s',
-    // 'psycho 700ms linear 5s',
-    'bright 0.6s linear 7s'
-];
-function rotate_animation() {
-    var anim = animations.shift();
-    animations.push(anim);
-    return anim;
-}
 
 function display_content_box() {
     $('main').css({

@@ -13,7 +13,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  animation: zoom 700ms ease-in 9s;
 }
+@keyframes zoom {
+  50% { filter: blur(10px); }
+}
+
 #background-pic {
   width: 100%;
   height: 100%;
@@ -34,17 +39,6 @@ body {
   #background-pic {
     background-image: url('assets/platine2_medres.jpg');
   }
-}
-
-@keyframes psycho {
-  0%     {filter: invert(100%); transform: scale(-1, 1) skewX(30deg);}
-  99.99% {filter: invert(100%); transform: scale(-1, 1) skewX(30deg);}
-}
-@keyframes zoom {
-  50%    {filter: blur(10px);}
-}
-@keyframes bright {
-  100%   {filter: brightness(700%);}
 }
 
 .centered {
