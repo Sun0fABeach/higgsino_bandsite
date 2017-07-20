@@ -1,3 +1,7 @@
+@keyframes zoom {
+  50% { filter: blur(10px); }
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -13,10 +17,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  animation: zoom 700ms ease-in 9s;
-}
-@keyframes zoom {
-  50% { filter: blur(10px); }
 }
 
 #background-pic {

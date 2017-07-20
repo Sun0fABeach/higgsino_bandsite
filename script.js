@@ -3,9 +3,10 @@
 
 $(window).on('load', function() {
 
-    // initial fade-in of logo and backdrop
+    // initial fade-in of logo and backdrop + subsequent zoom animation
     display_logo();
     $('#background-pic').css('opacity', '1');
+    $('#background').css('animation', 'zoom 700ms ease-in 9s');
 
 
     // click on logo: open content box, hide logo
@@ -53,6 +54,7 @@ $(window).on('load', function() {
  *  because they lack customization options (easing, delay)
  */
 function display_content_box() {
+    $('#background').css('animation', '');
     $('main').css({
         visibility: 'visible',
         maxWidth: '80%',
