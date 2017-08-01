@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'cast_iron_condensed';
+    src: url('assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff2') format('woff2'),
+         url('assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'geomanist';
+    src: url('assets/fonts/geomanist/regular/geomanist-regular-webfont.woff2') format('woff2'),
+         url('assets/fonts/geomanist/regular/geomanist-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @keyframes zoom {
   50% { filter: blur(10px); }
 }
@@ -61,7 +76,7 @@ main {
   background-color: #0a0a0a; /* fallback */
   background: radial-gradient(ellipse at center, #050505 20%, #202020 100%);
   color: #dfdfdf;
-  font: 1.2rem 'Audiowide', cursive;
+  font: 1rem 'geomanist', monospace;
   padding: 1em 2em 1em 2em;
   border-radius: 1.2em;
   box-shadow: 0 0 1em 2px rgba(255, 255, 255, 0.5) inset;
@@ -69,7 +84,13 @@ main {
 }
 
 main h1 {
-  font-size: 1.8em;
+  font-size: 2.5em;
+}
+
+main h1, main h2, main h3, main h4, main h5 {
+  font-family: 'cast_iron_condensed', monospace;
+  font-weight: normal;
+  letter-spacing: 0.1em;
 }
 
 /* smartphones on portrait view */
