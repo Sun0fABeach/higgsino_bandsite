@@ -1,6 +1,10 @@
 (function() {
 'use strict';
 
+$(document).ready(function() {
+    hide_content_box();
+});
+
 $(window).on('load', function() {
 
     // initial fade-in of logo and backdrop + subsequent zoom animation
@@ -48,31 +52,20 @@ $(window).on('load', function() {
             $mute_icon.removeClass().addClass(mute_toggle_icons.unmute);
         }
     });
+
 });
+
 
 /** helpers for animation - we are not using jQuery's animation handlers
  *  because they lack customization options (easing, delay)
  */
 function display_content_box() {
     $('#background').css('animation', '');
-    $('main').css({
-        visibility: 'visible',
-        maxWidth: '80%',
-        maxHeight: '90%'
-    }).children('#content-wrapper').css(
-        'opacity', '1'
-    );
+    $('main').css('left', 0);
 }
 
 function hide_content_box() {
-    $('main').css({
-        overflow: 'hidden',
-        visibility: 'hidden',
-        maxWidth: '0',
-        maxHeight: '0'
-    }).children('#content-wrapper').css(
-        'opacity', '0'
-    );
+    $('main').css('left', '-' + $('main').outerWidth() + 'px')
 }
 
 function display_logo() {

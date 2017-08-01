@@ -67,20 +67,15 @@ body {
 main {
   /* for some reason, if I set position to absolute, auto horizontal stretching
      doesn't work correctly (doesn't stretch enough) */
-  position: relative;
   display: inline-block;
-  visibility: hidden;
-  max-width: 0;
-  max-height: 0;
-  overflow: hidden;
+  position: absolute;
+  height: 100%;
   background-color: #0a0a0a; /* fallback */
   background: radial-gradient(ellipse at center, #050505 20%, #202020 100%);
   color: #dfdfdf;
   font: 1rem 'geomanist', monospace;
   padding: 1em 2em 1em 2em;
-  border-radius: 1.2em;
-  box-shadow: 0 0 1em 2px rgba(255, 255, 255, 0.5) inset;
-  transition: max-width 1s, max-height 1s;
+  transition: left 1s;
 }
 
 main h1 {
@@ -119,11 +114,6 @@ main h1, main h2, main h3, main h4, main h5 {
   main {
     /*font-size: 1.6rem;*/
   }
-}
-
-main > #content-wrapper {
-  opacity: 0;
-  transition: opacity 0.5s linear 0.5s;
 }
 
 main #mute-toggle {
