@@ -32,48 +32,71 @@
     </div>
 
     <main>
-      <span id="mute-toggle"><i class="fa fa-volume-up" aria-hidden="true"></i></span>
-      <div id="shows">
+      <div class="icon-row">
+        <span class="icon-target" id="mute-toggle">
+          <i class="fa fa-volume-up" aria-hidden="true"></i>
+        </span>
+      </div>
+
+      <section id="shows">
         <h1>Upcoming Shows</h1>
-        <table>
-          <tbody>
-            <tr>
-              <td>5.5.2019</td>
-              <td>Bloody Ninja Shushi Bar, Tokyo</td>
-            </tr>
-            <tr>
-              <td>1.1.2020</td>
-              <td>Empire State Building Rooftop, New York</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div id="links">
-        <h1>Social Media</h1>
-        <ul id="social-media">
+        <!-- <p>tba</p> -->
+        <ul>
           <li>
-            <i class="fa fa-external-link" aria-hidden="true"></i>
-            <a href="https://www.facebook.com/higgsinoband" target="_blank">Facebook</a>
+            <time datetime="2019-05-05 20:00">Sun, May 5, 2019</time>
+            <p>Tokyo, Japan</p>
+            <p>Bloody Ninja Sushi Bar</p>
           </li>
           <li>
-            <i class="fa fa-external-link" aria-hidden="true"></i>
-            <a href="https://higgsino.bandcamp.com/" target="_blank">Bandcamp</a>
-          </li>
-          <li>
-            <i class="fa fa-external-link" aria-hidden="true"></i>
-            <a href="https://soundcloud.com/higgsino" target="_blank">Soundcloud</a>
+            <time datetime="2020-01-01 00:00">Wed, January 1, 2020</time>
+            <p>New York, USA</p>
+            <p>Empire State Building Rooftop</p>
           </li>
         </ul>
-        <h1>Contact</h1>
-        <ul id="mail">
-          <li>
-            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            <a href="mailto:higgsino.band@gmail.com">higgsino.band@gmail.com</a>
-          </li>
-        </ul>
-      </div>
-      <div id="close-row">
-        <span id="close-target">Close <i class="fa fa-times-circle" aria-hidden="true"></i></span>
+      </section>
+
+      <section id="links">
+        <div>
+          <h1>Social Media</h1>
+          <ul id="social-media">
+            <li>
+              <a href="https://www.facebook.com/higgsinoband" target="_blank">
+                <i class="fa fa-external-link" aria-hidden="true"></i>
+                <span>Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://higgsino.bandcamp.com/" target="_blank">
+                <i class="fa fa-external-link" aria-hidden="true"></i>
+                <span>Bandcamp</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://soundcloud.com/higgsino" target="_blank">
+                <i class="fa fa-external-link" aria-hidden="true"></i>
+                <span>Soundcloud</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h1>Contact</h1>
+          <ul id="mail">
+            <li>
+              <a href="mailto:higgsino.band@gmail.com">
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                <span>higgsino.band@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="icon-row">
+        <span class="icon-target" id="close-target">Close
+          <i class="fa fa-times-circle" aria-hidden="true"></i>
+        </span>
       </div>
     </main>
 
