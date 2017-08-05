@@ -161,7 +161,8 @@ main #mute-toggle {
 
 /***** MEDIA QUERIES *****/
 
-@media (max-device-width: 1366px) { /* phones and pads */
+/* phones and pads (any orientation) */
+@media (max-device-width: 1366px) {
   main {
     width: 100%;
     text-align: center;
@@ -179,14 +180,10 @@ main #mute-toggle {
   }
 }
 
-@media (max-device-width: 736px) { /* smartphones */
+/* smartphones (any orientation) */
+@media (max-device-width: 767.99px) {
   #background-pic {
     background-image: url('assets/platine2_lowres.jpg');
-  }
-}
-@media (min-device-width: 736.1px) and (max-device-width: 1366px) { /* pads */
-  #background-pic {
-    background-image: url('assets/platine2_medres.jpg');
   }
 }
 
@@ -205,6 +202,7 @@ main #mute-toggle {
     margin-top: 0.5em;
   }
 }
+
 /* smartphones on landscape view */
 @media (min-device-width: 568px) and (max-device-width: 767.99px) {
   #logo {
@@ -214,8 +212,12 @@ main #mute-toggle {
     font-size: 1.1rem;
   }
 }
-/* smartphones on landscape view and pads */
-@media (min-device-width: 768px) and (max-device-width: 1366px)  {
+
+/* pads */
+@media (min-device-width: 768px) and (max-device-width: 1366px) {
+  #background-pic {
+    background-image: url('assets/platine2_medres.jpg');
+  }
   #logo {
     width: 60%;
   }
