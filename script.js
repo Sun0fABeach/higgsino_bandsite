@@ -11,49 +11,43 @@ var mute_toggle_icons = {
 $(document).ready(function() {
     hide_content_box();
 
-    // click on logo: open content box, hide logo
-    $('#logo').one('click', open_content);
+    $('.mute-toggle').click(toggle_background_track);
 
-    // on close: hide content box, show logo
-    $('#close-target').click(function() {
-        hide_content_box();
-        display_logo();
-        $('#logo').one('click', open_content);
+    $('#logo, #menu-icon').click(function open_content() {
+        display_content_box();
+        hide_logo_and_icons();
+        $('#sound-icon').off(); // prevent clickable hidden icon
     });
 
-    // mute / unmute background track
-    $('#mute-toggle').click(function() {
-        var $mute_icon = $(this).children('i');
-        var player = $('audio').get(0);
-        if(player.muted) {
-            player.muted = false;
-            $mute_icon.removeClass().addClass(mute_toggle_icons.mute);
-        } else {
-            player.muted = true;
-            $mute_icon.removeClass().addClass(mute_toggle_icons.unmute);
-        }
+    $('#menu-close').click(function() {
+        hide_content_box();
+        display_logo_and_icons();
+        $('#sound-icon').click(toggle_background_track);
     });
 });
 
 
-/** launch initial fade-in of logo and backdrop + subsequent zoom animation
+/** launch initial fade-in of logo and backdrop + subsequent blur animation
  *  once all assets have been loaded.
  */
 $(window).on('load', function() {
-    display_logo();
+    display_logo_and_icons();
     $('#background-pic').css('opacity', '1');
-    $('#background').css('animation', 'zoom 700ms ease-in 9s');
-
+    $('#background').css('animation', 'blur 700ms ease-in 9s');
 });
 
 
-/** helpers for animation - we are not using jQuery's animation handlers
- *  because they lack customization options (easing, delay)
- */
- function open_content() {
-     display_content_box();
-     hide_logo();
- }
+function toggle_background_track() {
+    var $mute_icons = $('.mute-toggle').children('i');
+    var player = $('audio').get(0);
+    if(player.muted) {
+        player.muted = false;
+        $mute_icons.removeClass().addClass(mute_toggle_icons.mute);
+    } else {
+        player.muted = true;
+        $mute_icons.removeClass().addClass(mute_toggle_icons.unmute);
+    }
+}
 
 function display_content_box() {
     $('#background').css('animation', '');
@@ -64,16 +58,16 @@ function hide_content_box() {
     $('main').css('left', '-' + $('main').outerWidth() + 'px');
 }
 
-function display_logo() {
-    $('#logo').css({
+function display_logo_and_icons() {
+    $('.hide-on-menu-open').css({
         opacity: '1',
         cursor: 'pointer'
     });
 }
 
-function hide_logo() {
-    $('#logo').css({
-        transition: 'opacity 0.5s linear',
+function hide_logo_and_icons() {
+    $('#logo').css('transition', 'opacity 0.5s linear');
+    $('.hide-on-menu-open').css({
         opacity: '0',
         cursor: 'auto'
     });

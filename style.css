@@ -13,7 +13,7 @@
     font-style: normal;
 }
 
-@keyframes zoom {
+@keyframes blur {
   50% { filter: blur(10px); }
 }
 
@@ -41,17 +41,48 @@ body {
   transition: opacity 9s ease-in;
 }
 
-.centered {
+.hide-on-menu-open {
+  position: absolute;
+  cursor: pointer;
+  color: white;
+}
+
+#menu-icon, #sound-icon {
+  top: 0.8em;
+  font-size: 3rem;
+}
+#menu-icon {
+  left: 1em;
+}
+#sound-icon {
+  right: 1em;
+}
+#logo {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-#logo {
-  position: absolute;
   width: 40%;
   opacity: 0;
   transition: opacity 6s ease-out;
+}
+
+.icon-target {
+  transition: color 0.2s linear;
+}
+.hide-on-menu-open.icon-target {
+  transition: opacity 0.5s linear, color 0.2s linear;
+}
+.icon-target:hover {
+  cursor: pointer;
+  color: #dd2020;
+}
+
+/* need to fixate the icon in its container so toggling doesn't move it */
+.mute-toggle {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  text-align: left;
 }
 
 main {
@@ -141,20 +172,7 @@ main .icon-row:last-of-type {
   margin-top: 2em;
   margin-bottom: 1.5em;
 }
-main .icon-row > .icon-target {
-  transition: color 0.2s linear;
-}
-main .icon-row > .icon-target:hover {
-  cursor: pointer;
-  color: #dd2020;
-}
-
-/* need to fixate the icon in its container so toggling doesn't move it */
-main #mute-toggle {
-  display: inline-block;
-  text-align: left;
-  width: 1em;
-  height: 1em;
+main .mute-toggle {
   font-size: 1.8em;
 }
 
@@ -163,12 +181,12 @@ main #mute-toggle {
 
 /* phones and pads (any orientation) */
 @media (max-device-width: 1366px) {
+  .mute-toggle {
+    display: none; /* no background track is being played */
+  }
   main {
     width: 100%;
     text-align: center;
-  }
-  main #mute-toggle {
-    display: none; /* no background track is being played */
   }
   main #links ul {  /* left alignment for centered list */
     display: inline-block;
@@ -184,6 +202,13 @@ main #mute-toggle {
 @media (max-device-width: 767.99px) {
   #background-pic {
     background-image: url('assets/platine2_lowres.jpg');
+  }
+  #menu-icon {
+    top: 0.5em;
+    font-size: 2.5rem;
+  }
+  #menu-icon {
+    left: 0.5em;
   }
 }
 

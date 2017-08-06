@@ -28,12 +28,18 @@
 
     <div id="background">
       <div id="background-pic"></div>
-      <img class="centered" id="logo" src="assets/logo_red.jpg" alt="Higgsino logo">
+      <span id="menu-icon" class="icon-target hide-on-menu-open">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </span>
+      <span id="sound-icon" class="icon-target mute-toggle hide-on-menu-open">
+        <i class="fa fa-volume-up" aria-hidden="true"></i>
+      </span>
+      <img id="logo" class="hide-on-menu-open" src="assets/logo_red.jpg" alt="Higgsino logo">
     </div>
 
     <main>
       <div class="icon-row">
-        <span class="icon-target" id="mute-toggle">
+        <span class="icon-target mute-toggle">
           <i class="fa fa-volume-up" aria-hidden="true"></i>
         </span>
       </div>
@@ -90,7 +96,7 @@
       </section>
 
       <div class="icon-row">
-        <span class="icon-target" id="close-target">Close
+        <span class="icon-target" id="menu-close">Close
           <i class="fa fa-times-circle" aria-hidden="true"></i>
         </span>
       </div>
