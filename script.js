@@ -1,4 +1,4 @@
-(function() {
+(function($) {
 'use strict';
 
 /* font-awesome icon classes */
@@ -73,4 +73,4 @@ function hide_logo_and_icons() {
     });
 }
 
-})();
+})(jQuery);
