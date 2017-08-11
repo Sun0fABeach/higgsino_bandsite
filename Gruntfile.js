@@ -47,6 +47,7 @@ grunt.initConfig({
             src: [
                 'Lazar.wav', 'logo_red.jpg',
                 'platine2.jpg', 'platine2_medres.jpg', 'platine2_lowres.jpg',
+                'content_background.jpg',
                 'fonts/geomanist/regular/geomanist-regular-webfont.woff*',
                 'fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff*'
             ],

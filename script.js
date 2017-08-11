@@ -32,7 +32,7 @@ $(document).ready(function() {
  */
 $(window).on('load', function() {
     display_logo_and_icons();
-    $('#background-pic').css('opacity', '1');
+    $('#background-pic').css('opacity', '0.8');
     $('#background').css('animation', 'blur 700ms ease-in 9s');
 });
 
