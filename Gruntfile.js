@@ -45,7 +45,9 @@ grunt.initConfig({
             expand: true,
             cwd: 'assets',
             src: [
-                'Lazar.wav', 'logo_red.jpg',
+                'Lazar.wav',
+                'favicon.png',
+                'logo_red.jpg',
                 'platine2_hires.jpg',
                 'platine2_medres.jpg',
                 'platine2_lowres.jpg',
