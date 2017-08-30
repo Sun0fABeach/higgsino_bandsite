@@ -1,0 +1,14 @@
+@font-face {
+    font-family: $header_font;
+    src: url('assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff2') format('woff2'),
+         url('assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: $text_font;
+    src: url('assets/fonts/geomanist/regular/geomanist-regular-webfont.woff2') format('woff2'),
+         url('assets/fonts/geomanist/regular/geomanist-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

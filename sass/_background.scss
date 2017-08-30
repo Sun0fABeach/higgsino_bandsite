@@ -1,0 +1,71 @@
+#background {
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  #background-pic {
+    width: 100%;
+    height: 100%;
+    background: url('assets/platine2_hires.jpg') center/cover;
+    opacity: 0;
+    transition: map-get($transitions, background_initial);
+
+    @include mq-pads {
+      background-image: url('assets/platine2_medres.jpg');
+    }
+    @include mq-phones {
+      background-image: url('assets/platine2_lowres.jpg');
+    }
+  }
+
+  #logo {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    opacity: 0;
+    transition: map-get($transitions, logo_initial);
+
+    @include mq-pads {
+      width: 60%;
+    }
+    @include mq-phones-landscape {
+      width: 60%;
+    }
+    @include mq-phones-portrait {
+      width: 82%;
+    }
+  }
+
+  .hide-on-menu-open {
+    position: absolute;
+    cursor: pointer;
+
+    &.icon-target {
+      transition: map-get($transitions, icon_fade),
+                  map-get($transitions, icon_hover);
+    }
+  }
+
+  %icon-on-background {
+    top: 0.8em;
+    font-size: 3rem;
+    color: $icon_on_background_color;
+    @include icon-hover-styles;
+  }
+  #menu-icon {
+    @extend %icon-on-background;
+    left: 1em;
+
+    @include mq-phones {
+      top: 0.5em;
+      left: 0.5em;
+      font-size: 2.5rem;
+    }
+  }
+  #sound-icon {
+    @extend %icon-on-background;
+    right: 1em;
+  }
+}

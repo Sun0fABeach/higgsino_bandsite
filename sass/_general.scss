@@ -1,0 +1,38 @@
+@keyframes blur {
+  50% { filter: blur(10px); }
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body {
+  /* don't let any animations cause scrollbars */
+  overflow: hidden;
+}
+
+@mixin icon-hover-styles {
+  &:hover {
+    cursor: pointer;
+    color: $hover_color;
+  }
+}
+
+/* for icons both in the background and inside content area */
+.icon-target {
+  transition: map-get($transitions, icon_hover);
+  @include icon-hover-styles;
+}
+
+/* need to fixate the icon in its container so toggling doesn't move it */
+.mute-toggle {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  text-align: left;
+
+  @include mq-all-mobile {
+    display: none; /* no background track is being played */
+  }
+}

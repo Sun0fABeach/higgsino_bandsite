@@ -4,6 +4,16 @@ module.exports = function(grunt) {
 grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    sass: {
+        options: {
+            sourceMap: true
+        },
+        build: {
+            files: {
+                'style.css': 'sass/style.scss'
+            }
+        }
+    },
     cssmin: {
         options: {},
         build: {
@@ -72,6 +82,7 @@ grunt.initConfig({
     }
 });
 
+grunt.loadNpmTasks('grunt-sass');
 grunt.loadNpmTasks('grunt-processhtml');
 grunt.loadNpmTasks('grunt-contrib-copy');
 grunt.loadNpmTasks('grunt-contrib-clean');
@@ -81,7 +92,7 @@ grunt.loadNpmTasks('grunt-contrib-htmlmin');
 grunt.loadNpmTasks('grunt-contrib-connect');
 
 grunt.registerTask('default', [
-    'cssmin', 'uglify', 'processhtml', 'htmlmin', 'copy'
+    'sass', 'cssmin', 'uglify', 'processhtml', 'htmlmin', 'copy'
 ]);
 
 
