@@ -55,7 +55,7 @@ grunt.initConfig({
             expand: true,
             cwd: 'assets',
             src: [
-                'Lazar.wav',
+                'Loop.*',
                 'favicon.ico',
                 'logo.png',
                 'background_hires.jpg',
