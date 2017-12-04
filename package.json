@@ -7,6 +7,10 @@
     "clean": "node_modules/grunt/bin/grunt clean",
     "build": "node_modules/grunt/bin/grunt"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:Sun0fABeach/higgsino_bandsite.git"
+  },
   "author": "Markus Appel",
   "license": "ISC",
   "dependencies": {
