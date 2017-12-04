@@ -9,6 +9,8 @@
   "author": "Markus Appel",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
     "grunt": "^1.0.1"
   },
   "devDependencies": {
