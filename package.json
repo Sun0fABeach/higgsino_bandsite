@@ -5,7 +5,8 @@
   "main": "script.js",
   "scripts": {
     "clean": "node_modules/grunt/bin/grunt clean",
-    "build": "node_modules/grunt/bin/grunt"
+    "build": "node_modules/grunt/bin/grunt",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
