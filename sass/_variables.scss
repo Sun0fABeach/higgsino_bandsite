@@ -1,0 +1,17 @@
+$text_color : #dfdfdf;
+$hover_color : #dd2020;
+$icon_on_background_color : #D1D3D4;
+
+$header_font : cast_iron_condensed;
+$text_font : geomanist;
+$header_font_style : $header_font, monospace;
+$text_font_style : $text_font, monospace;
+
+$transitions : (
+  background_initial : opacity 9s ease-in,
+  logo_initial : opacity 6s ease-out,
+  icon_hover : color 0.2s linear,
+  icon_fade : opacity 0.5s linear,
+  link_hover : all 0.2s linear, /* color and scale */
+  content_open : left 1s
+);

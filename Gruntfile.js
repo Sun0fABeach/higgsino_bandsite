@@ -4,6 +4,16 @@ module.exports = function(grunt) {
 grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    sass: {
+        options: {
+            sourceMap: true
+        },
+        build: {
+            files: {
+                'style.css': 'sass/style.scss'
+            }
+        }
+    },
     cssmin: {
         options: {},
         build: {
@@ -45,8 +55,18 @@ grunt.initConfig({
             expand: true,
             cwd: 'assets',
             src: [
-                'Lazar.wav', 'logo_red.jpg',
-                'platine2.jpg', 'platine2_medres.jpg', 'platine2_lowres.jpg'
+                'Loop.*',
+                'favicon.ico',
+                'logo.png',
+                'background_hires.jpg',
+                'background_medres.jpg',
+                'background_lowres.jpg',
+                'content_background_hires.jpg',
+                'content_background_medres.jpg',
+                'content_background_lowres.jpg',
+                'fonts/geomanist/regular/geomanist-regular-webfont.woff*',
+                'fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff*',
+                '../evolife/**'
             ],
             dest: 'build/assets'
         }
@@ -62,6 +82,7 @@ grunt.initConfig({
     }
 });
 
+grunt.loadNpmTasks('grunt-sass');
 grunt.loadNpmTasks('grunt-processhtml');
 grunt.loadNpmTasks('grunt-contrib-copy');
 grunt.loadNpmTasks('grunt-contrib-clean');
@@ -71,7 +92,7 @@ grunt.loadNpmTasks('grunt-contrib-htmlmin');
 grunt.loadNpmTasks('grunt-contrib-connect');
 
 grunt.registerTask('default', [
-    'cssmin', 'uglify', 'processhtml', 'htmlmin', 'copy'
+    'sass', 'cssmin', 'uglify', 'processhtml', 'htmlmin', 'copy'
 ]);
 
 

@@ -1,0 +1,158 @@
+main {
+  position: absolute;
+  height: 100%;
+  background: url(assets/content_background_hires.jpg) right center/cover;
+  transition: map-get($transitions, content_open);
+
+  @include mq-all-mobile {
+    width: 100%;
+  }
+  @include mq-pads {
+    background-image: url(assets/content_background_medres.jpg);
+  }
+  @include mq-phones {
+    background-image: url(assets/content_background_lowres.jpg);
+  }
+
+
+  #content {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box; /* so scrollbar is hidden when box is closed */
+    overflow-y: auto;
+    height: 100%;
+    padding: 0 2em;
+    background-color: rgba(9, 18, 18, 0.8);
+    color: $text_color;
+    font: bold 1rem $text_font_style;
+
+    @include mq-all-mobile {
+      width: 100%;
+      text-align: center;
+    }
+    @include mq-pads {
+      font-size: 1.6rem;
+    }
+    @include mq-phones-landscape {
+      font-size: 1.1rem;
+    }
+    @include mq-phones-portrait {
+      font-size: 1rem;
+    }
+
+
+    section {
+      margin: 0 5em;
+
+      @include mq-phones-portrait {
+        margin: 0 1em;
+      }
+    }
+  }
+
+
+  h1, h2, h3, h4, h5 {
+    font-family: $header_font_style;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin: 1.2em 0 0.6em;
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  #shows {
+    text-transform: uppercase;
+
+    h1 {
+      @include mq-phones-portrait {
+        margin-top: 0.5em;
+      }
+    }
+    ul {
+      font-size: 1.1em;
+
+      time {
+        display: block;
+        margin: 1.7em 0 0.4em;
+      }
+      p {
+        font-weight: normal;
+        font-size: 0.9em;
+        margin: 0.2em 0;
+
+        &:last-of-type::before {
+          content: "- ";
+          @include mq-all-mobile {
+            content: "";
+          }
+        }
+      }
+    }
+  }
+
+  #links {
+    ul {  /* left alignment for centered list */
+      @include mq-all-mobile {
+        display: inline-block;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      i {
+        margin-right: 0.8em;
+      }
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        line-height: 1.9;
+
+        span {
+          display: inline-block;
+          transition: map-get($transitions, link_hover);
+        }
+        &:hover span {
+          color: $hover_color;
+          transform: scale(1.1, 1.1);
+        }
+      }
+    }
+  }
+
+  .icon-row {
+    position: relative;
+    text-align: right;
+
+    &:first-of-type {
+      margin-top: 1.5em;
+    }
+    &:last-of-type {
+      margin-top: 2em;
+      margin-bottom: 1.5em;
+    }
+
+    .mute-toggle {
+      font-size: 1.8em;
+    }
+  }
+
+  a#evolife-link {
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    color: inherit;
+
+    @include mq-all-mobile {
+      display: none;
+    }
+  }
+}

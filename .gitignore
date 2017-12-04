@@ -1,0 +1,6 @@
+assets/dump
+build
+node_modules
+*.css.map
+.sass-cache
+style.css

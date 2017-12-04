@@ -1,0 +1,29 @@
+@mixin mq-phones-portrait {
+  @media (max-device-width: 567.99px) {
+    @content;
+  }
+}
+
+@mixin mq-phones-landscape {
+  @media (min-device-width: 568px) and (max-device-width: 767.99px) {
+    @content;
+  }
+}
+
+@mixin mq-phones {
+  @media (max-device-width: 767.99px) {
+    @content;
+  }
+}
+
+@mixin mq-pads {
+  @media (min-device-width: 768px) and (max-device-width: 1366px) {
+    @content;
+  }
+}
+
+@mixin mq-all-mobile {
+  @media (max-device-width: 1366px) {
+    @content;
+  }
+}

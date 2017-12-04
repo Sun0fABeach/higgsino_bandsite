@@ -4,20 +4,28 @@
   "description": "Higgsino band page",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "node_modules/grunt/bin/grunt clean",
+    "build": "node_modules/grunt/bin/grunt",
+    "start": "node server.js",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:Sun0fABeach/higgsino_bandsite.git"
   },
   "author": "Markus Appel",
   "license": "ISC",
   "dependencies": {
-    "grunt": "^1.0.1"
-  },
-  "devDependencies": {
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.0",
     "grunt-contrib-htmlmin": "^2.4.0",
     "grunt-contrib-uglify": "^3.0.1",
-    "grunt-processhtml": "^0.4.1"
+    "grunt-processhtml": "^0.4.1",
+    "grunt-sass": "^2.0.0"
   }
 }
