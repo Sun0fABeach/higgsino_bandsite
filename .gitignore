@@ -1,4 +1,4 @@
-assets
+assets/dump
 build
 node_modules
 *.css.map
