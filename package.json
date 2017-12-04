@@ -4,7 +4,8 @@
   "description": "Higgsino band page",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "node_modules/grunt/bin/grunt clean",
+    "build": "node_modules/grunt/bin/grunt"
   },
   "author": "Markus Appel",
   "license": "ISC",
