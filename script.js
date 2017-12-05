@@ -7,20 +7,19 @@ var mute_toggle_icons = {
     unmute: 'fa fa-volume-off'
 };
 
-
 $(document).ready(function() {
     hide_content_box();
 
     $('.mute-toggle').click(toggle_background_track);
 
     $('#logo, #menu-icon').click(function open_content() {
-        show_content_box();
+        show_content_box('1s ease');
         hide_logo_and_icons();
         $('#sound-icon').off(); // prevent clickable hidden icon
     });
 
     $('#menu-close').click(function() {
-        hide_content_box();
+        hide_content_box('1s ease');
         display_logo_and_icons();
         $('#sound-icon').click(toggle_background_track);
     });
@@ -53,13 +52,19 @@ function toggle_background_track() {
     }
 }
 
-function show_content_box() {
+function show_content_box(transition_behavior) {
     $('#background').css('animation', '');
-    $('main').css('left', 0);
+    $('main').css({
+        transition: 'left ' + transition_behavior,
+        left: 0
+    });
 }
 
-function hide_content_box(callback) {
-    $('main').css('left', '-' + $('main').outerWidth() + 'px');
+function hide_content_box(transition_behavior, callback) {
+    $('main').css({
+        transition: 'left ' + transition_behavior,
+        left: '-' + $('main').outerWidth() + 'px'
+    });
     if(callback) {
         $('main').on('transitionend', event => {
             if(event.target.nodeName.toLowerCase() === 'main') {
@@ -87,20 +92,20 @@ function hide_logo_and_icons() {
 }
 
 function show_impressum($btn) {
-    hide_content_box(() => {
+    hide_content_box('0.5s linear', () => {
         $btn.text('Back').one('click', () => show_content($btn));
         $('#content > section:not(#impressum)').css('display', 'none');
         $('#content > section#impressum').css('display', 'block');
-        show_content_box();
+        show_content_box('0.5s linear');
     });
 }
 
 function show_content($btn) {
-    hide_content_box(() => {
+    hide_content_box('0.5s linear', () => {
         $btn.text('Impressum').one('click', () => show_impressum($btn));
         $('#content > section#impressum').css('display', 'none');
         $('#content > section:not(#impressum)').css('display', 'block');
-        show_content_box();
+        show_content_box('0.5s linear');
     });
 }
 
