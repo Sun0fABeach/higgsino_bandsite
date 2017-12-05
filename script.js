@@ -66,7 +66,7 @@ function hide_content_box(transition_behavior, callback) {
         left: '-' + $('main').outerWidth() + 'px'
     });
     if(callback) {
-        $('main').on('transitionend', event => {
+        $('main').on('transitionend', function() {
             if(event.target.nodeName.toLowerCase() === 'main') {
                 $('main').off();
                 callback();
@@ -92,8 +92,11 @@ function hide_logo_and_icons() {
 }
 
 function show_impressum($btn) {
-    hide_content_box('0.5s linear', () => {
-        $btn.text('Back').one('click', () => show_content($btn));
+    hide_content_box('0.5s linear', function() {
+        $btn
+        .text('Back')
+        .one('click', function() { show_content($btn); });
+
         $('#content > section:not(#impressum)').css('display', 'none');
         $('#content > section#impressum').css('display', 'block');
         show_content_box('0.5s linear');
@@ -101,8 +104,11 @@ function show_impressum($btn) {
 }
 
 function show_content($btn) {
-    hide_content_box('0.5s linear', () => {
-        $btn.text('Impressum').one('click', () => show_impressum($btn));
+    hide_content_box('0.5s linear', function() {
+        $btn
+        .text('Impressum')
+        .one('click', function() { show_impressum($btn) });
+
         $('#content > section#impressum').css('display', 'none');
         $('#content > section:not(#impressum)').css('display', 'block');
         show_content_box('0.5s linear');
