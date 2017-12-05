@@ -40,11 +40,10 @@
 
   .hide-on-menu-open {
     position: absolute;
-    cursor: pointer;
 
-    &.icon-target {
+    &.click-target {
       transition: map-get($transitions, icon_fade),
-                  map-get($transitions, icon_hover);
+                  map-get($transitions, click_target_hover);
     }
   }
 

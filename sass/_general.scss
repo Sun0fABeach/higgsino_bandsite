@@ -19,9 +19,9 @@ body {
   }
 }
 
-/* for icons both in the background and inside content area */
-.icon-target {
-  transition: map-get($transitions, icon_hover);
+/* for clickable non-link elements both in the background and inside content area */
+.click-target {
+  transition: map-get($transitions, click_target_hover);
   @include icon-hover-styles;
 }
 

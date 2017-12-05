@@ -10,8 +10,10 @@ $text_font_style : $text_font, monospace;
 $transitions : (
   background_initial : opacity 9s ease-in,
   logo_initial : opacity 6s ease-out,
-  icon_hover : color 0.2s linear,
+  click_target_hover : color 0.2s linear,
   icon_fade : opacity 0.5s linear,
   link_hover : all 0.2s linear, /* color and scale */
   content_open : left 1s
 );
+
+$link_transform : scale(1.1, 1.1);

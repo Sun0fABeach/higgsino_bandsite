@@ -48,6 +48,10 @@ main {
       @include mq-phones-portrait {
         margin: 0 1em;
       }
+
+      &#impressum {
+        display: none;
+      }
     }
   }
 
@@ -111,26 +115,32 @@ main {
         margin-right: 0.8em;
       }
       a {
-        display: inline-block;
         text-decoration: none;
         color: inherit;
         line-height: 1.9;
 
         span {
-          display: inline-block;
+          display: inline-block; // needed for hover transform to work
           transition: map-get($transitions, link_hover);
         }
         &:hover span {
           color: $hover_color;
-          transform: scale(1.1, 1.1);
+          transform: $link_transform;
         }
       }
     }
   }
 
+  #impressum {
+    p {
+      line-height: 1.7;
+    }
+  }
+
   .icon-row {
-    position: relative;
-    text-align: right;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 
     &:first-of-type {
       margin-top: 1.5em;
@@ -143,16 +153,15 @@ main {
     .mute-toggle {
       font-size: 1.8em;
     }
-  }
 
-  a#evolife-link {
-    position: absolute;
-    left: 0;
-    text-decoration: none;
-    color: inherit;
+    a#evolife-link {
+        text-decoration: none;
+        color: inherit;
 
-    @include mq-all-mobile {
-      display: none;
+        @include mq-all-mobile {
+            display: none;
+        }
     }
   }
+
 }
