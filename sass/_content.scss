@@ -18,10 +18,10 @@ main {
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box; /* so scrollbar is hidden when box is closed */
+    box-sizing: border-box; // so scrollbar is hidden when box is closed
     overflow-y: auto;
     height: 100%;
-    padding: 1.5em 2em 0;
+    padding: 1.5em 2em 0; // bottom margin is set via last .icon-row (necessary due to firefox)
     background-color: rgba(9, 18, 18, 0.8);
     color: $text_color;
     font: bold 1rem $text_font_style;
@@ -138,7 +138,7 @@ main {
     .icon-row {
       &:last-of-type {
         margin-top: 2em;
-        padding-bottom: 1.5em;
+        padding-bottom: 1.5em; // to have bottom margin in content box with scrollbar on firefox
       }
 
       > div {
