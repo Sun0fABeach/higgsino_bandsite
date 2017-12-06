@@ -21,7 +21,7 @@ main {
     box-sizing: border-box; /* so scrollbar is hidden when box is closed */
     overflow-y: auto;
     height: 100%;
-    padding: 1.5em 2em;
+    padding: 1.5em 2em 0;
     background-color: rgba(9, 18, 18, 0.8);
     color: $text_color;
     font: bold 1rem $text_font_style;
@@ -138,6 +138,7 @@ main {
     .icon-row {
       &:last-of-type {
         margin-top: 2em;
+        padding-bottom: 1.5em;
       }
 
       > div {
