@@ -66,7 +66,7 @@ function hide_content_box(transition_behavior, callback) {
         left: '-' + $('main').outerWidth() + 'px'
     });
     if(callback) {
-        $('main').on('transitionend', function() {
+        $('main').on('transitionend', function(event) {
             if(event.target.nodeName.toLowerCase() === 'main') {
                 $('main').off();
                 callback();
