@@ -21,7 +21,7 @@ main {
     box-sizing: border-box; /* so scrollbar is hidden when box is closed */
     overflow-y: auto;
     height: 100%;
-    padding: 0 2em;
+    padding: 1.5em 2em;
     background-color: rgba(9, 18, 18, 0.8);
     color: $text_color;
     font: bold 1rem $text_font_style;
@@ -137,29 +137,27 @@ main {
   }
 
   .icon-row {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-
-    &:first-of-type {
-      margin-top: 1.5em;
-    }
     &:last-of-type {
       margin-top: 2em;
-      margin-bottom: 1.5em;
     }
 
-    .mute-toggle {
-      font-size: 1.8em;
-    }
+    > div {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
 
-    a#evolife-link {
+      .mute-toggle {
+        font-size: 1.8em;
+      }
+
+      a#evolife-link {
         text-decoration: none;
         color: inherit;
 
         @include mq-all-mobile {
-            display: none;
+          display: none;
         }
+      }
     }
   }
 
