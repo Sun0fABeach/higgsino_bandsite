@@ -14,11 +14,19 @@ grunt.initConfig({
             }
         }
     },
+    autoprefixer: {
+        options: {},
+        build: {
+            files: {
+                'build/style.css': ['style.css']
+            }
+        }
+    },
     cssmin: {
         options: {},
         build: {
             files: {
-                'build/style.min.css': ['style.css']
+                'build/style.min.css': ['build/style.css']
             }
         }
     },
@@ -71,7 +79,7 @@ grunt.initConfig({
             dest: 'build/assets'
         }
     },
-    clean: ['build'],
+    clean: ['build', 'style.css'],
     connect: {
         server: {
             options: {
@@ -83,6 +91,7 @@ grunt.initConfig({
 });
 
 grunt.loadNpmTasks('grunt-sass');
+grunt.loadNpmTasks('grunt-autoprefixer');
 grunt.loadNpmTasks('grunt-processhtml');
 grunt.loadNpmTasks('grunt-contrib-copy');
 grunt.loadNpmTasks('grunt-contrib-clean');
@@ -92,7 +101,7 @@ grunt.loadNpmTasks('grunt-contrib-htmlmin');
 grunt.loadNpmTasks('grunt-contrib-connect');
 
 grunt.registerTask('default', [
-    'sass', 'cssmin', 'uglify', 'processhtml', 'htmlmin', 'copy'
+    'sass', 'autoprefixer', 'cssmin', 'uglify', 'processhtml', 'htmlmin', 'copy'
 ]);
 
 
