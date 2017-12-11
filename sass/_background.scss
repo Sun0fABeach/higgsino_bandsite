@@ -60,11 +60,15 @@
     @include mq-phones {
       top: 0.5em;
       left: 0.5em;
-      font-size: 2.5rem;
     }
   }
   #sound-icon {
     @extend %icon-on-background;
     right: 1em;
+
+    @include mq-phones {
+      top: 0.5em;
+      right: 0.5em;
+    }
   }
 }

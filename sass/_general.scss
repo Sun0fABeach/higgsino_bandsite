@@ -31,8 +31,4 @@ body {
   width: 1em;
   height: 1em;
   text-align: left;
-
-  @include mq-all-mobile {
-    display: none; /* no background track is being played */
-  }
 }

@@ -31,10 +31,14 @@ $(document).ready(function() {
 
 
 /** launch initial fade-in of logo and backdrop + subsequent blur animation
- *  once all assets have been loaded.
+ *  once all assets have been loaded. also decide if sound button is needed.
  */
 $(window).on('load', function() {
     display_logo_and_icons();
+
+    if(get_player().paused) /* no background track is being autoplayed */
+        $('.mute-toggle').css('display', 'none');
+
     $('#background-pic').css('opacity', '0.8');
     $('#background').css('animation', 'blur 700ms ease-in 9s');
 });
@@ -42,7 +46,7 @@ $(window).on('load', function() {
 
 function toggle_background_track() {
     var $mute_icons = $('.mute-toggle').children('i');
-    var player = $('audio').get(0);
+    var player = get_player();
     if(player.muted) {
         player.muted = false;
         $mute_icons.removeClass().addClass(mute_toggle_icons.mute);
@@ -113,6 +117,10 @@ function show_content($btn) {
         $('#content > section:not(#impressum)').css('display', 'block');
         show_content_box('0.5s linear');
     });
+}
+
+function get_player() {
+    return $('audio').get(0);
 }
 
 })(jQuery);
