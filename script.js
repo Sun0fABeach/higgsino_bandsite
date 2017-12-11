@@ -36,8 +36,12 @@ $(document).ready(function() {
 $(window).on('load', function() {
     display_logo_and_icons();
 
-    if(!get_player().paused) /* background track is being autoplayed */
-        $('.mute-toggle').css('display', 'inline-block');
+    /* show mute icon if background track is being autoplayed. delay check
+       to make it work on refresh for certain browsers. */
+    setTimeout(function() {
+        if(!get_player().paused)
+            $('.mute-toggle').css('display', 'inline-block');
+    }, 50);
 
     $('#background-pic').css('opacity', '0.8');
     $('#background').css('animation', 'blur 700ms ease-in 9s');
