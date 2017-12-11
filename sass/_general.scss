@@ -25,9 +25,10 @@ body {
   @include icon-hover-styles;
 }
 
-/* need to fixate the icon in its container so toggling doesn't move it */
 .mute-toggle {
-  display: inline-block;
+  /* change to inline-block when making it visible, in order to fixate the icon
+     in its container so toggling doesn't move it. */
+  display: none;
   width: 1em;
   height: 1em;
   text-align: left;
