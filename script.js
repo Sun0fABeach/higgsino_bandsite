@@ -41,7 +41,7 @@ $(window).on('load', function() {
     setTimeout(function() {
         if(!get_player().paused)
             $('.mute-toggle').css('display', 'inline-block');
-    }, 50);
+    }, 100);
 
     $('#background-pic').css('opacity', '0.8');
     $('#background').css('animation', 'blur 700ms ease-in 9s');
