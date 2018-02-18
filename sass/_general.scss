@@ -10,6 +10,7 @@ html, body {
 body {
   /* don't let any animations cause scrollbars */
   overflow: hidden;
+  background-color: black;
 }
 
 @mixin icon-hover-styles {
