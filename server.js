@@ -8,4 +8,6 @@ app.use(
     express.static('build/', {maxAge: '1y'})
 );
 
-server.listen(process.env.PORT || 8000);
+const port = process.env.PORT || 8000
+server.listen(port);
+console.log(`http://localhost:${port}`);
