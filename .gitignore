@@ -3,4 +3,5 @@ build
 node_modules
 *.css.map
 .sass-cache
+.vscode
 style.css
