@@ -29,27 +29,12 @@
     <link rel="preload" href="assets/background_hires.jpg" as="image" type="image/jpeg"
           media="(min-device-width: 1367px)">
 
-    <!-- content background image prefetched since not displayed until sidebar opens -->
-    <!-- <link rel="prefetch" href="assets/content_background_lowres.jpg" as="image" type="image/jpeg"
-          media="(max-device-width: 767px)">
-    <link rel="prefetch" href="assets/content_background_medres.jpg" as="image" type="image/jpeg"
-          media="(min-device-width: 768px) and (max-device-width: 1366px)">
-    <link rel="prefetch" href="assets/content_background_hires.jpg" as="image" type="image/jpeg"
-          media="(min-device-width: 1367px)"> -->
-
-    <!-- here we assume that browsers able to handle preloads/prefetches will 
+    <!-- here we assume that browsers able to handle preloads will
          be able to handle woff2 webfonts, so we load that file type. -->
 
     <!-- font-awesome webfont preloaded, since immediately required for top level icons -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0"
           type="font/woff2" as="font" crossorigin="anonymous">
-
-    <!-- content webfont prefetched, since not displayed until sidebar opens -->
-    <!-- <link rel="prefetch" href="assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff2"
-          type="font/woff2" as="font" crossorigin="anonymous">
-    <link rel="prefetch" href="assets/fonts/geomanist/regular/geomanist-regular-webfont.woff2"
-          type="font/woff2" as="font" crossorigin="anonymous"> -->
-
   </head>
   <body>
     <audio autoplay loop preload="none">
