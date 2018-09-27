@@ -9,6 +9,8 @@ var mute_toggle_icons = {
 
 $(document).ready(function() {
     hide_content_box();
+    /* main is initially set invisible via css to avoid flash on page load */
+    $('main').css('visibility', 'visible');
 
     $('.mute-toggle').click(toggle_background_track);
 
@@ -70,7 +72,7 @@ function show_content_box(transition_behavior) {
 
 function hide_content_box(transition_behavior, callback) {
     $('main').css({
-        transition: 'left ' + transition_behavior,
+        transition: transition_behavior ? 'left ' + transition_behavior : null,
         left: '-' + $('main').outerWidth() + 'px'
     });
     if(callback) {
