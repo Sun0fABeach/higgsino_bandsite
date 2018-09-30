@@ -108,5 +108,4 @@ grunt.registerTask('default', [
     'sass', 'autoprefixer', 'cssmin', 'uglify', 'processhtml', 'htmlmin', 'copy'
 ]);
 
-
 };
