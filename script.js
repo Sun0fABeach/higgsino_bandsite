@@ -65,15 +65,16 @@ function toggle_background_track() {
 function show_content_box(transition_behavior) {
     $('#background').css('animation', '');
     $('main').css({
-        transition: 'left ' + transition_behavior,
-        left: 0
+        transition: 'transform ' + transition_behavior,
+        transform: 'translateX(0)'
     });
 }
 
 function hide_content_box(transition_behavior, callback) {
     $('main').css({
-        transition: transition_behavior ? 'left ' + transition_behavior : null,
-        left: '-' + $('main').outerWidth() + 'px'
+        transition: transition_behavior ?
+            'transform ' + transition_behavior : null,
+        transform: 'translateX(-' + $('main').outerWidth() + 'px)'
     });
     if(callback) {
         $('main').on('transitionend', function(event) {
