@@ -7,7 +7,7 @@
     "clean": "node_modules/grunt/bin/grunt clean",
     "build": "node_modules/grunt/bin/grunt",
     "start": "node server.js",
-    "deploy": "git push heroku gig_updates:master",
+    "deploy": "git push --force-with-lease heroku gig_updates:master",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
