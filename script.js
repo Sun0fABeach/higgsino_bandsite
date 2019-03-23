@@ -26,8 +26,8 @@ $(document).ready(function() {
         $('#sound-icon').click(toggle_background_track);
     });
 
-    $('#toggle-impressum').one('click', function() {
-        show_impressum($(this));
+    $('#toggle-imprint').one('click', function() {
+        show_imprint($(this));
     });
 });
 
@@ -102,14 +102,14 @@ function hide_logo_and_icons() {
     });
 }
 
-function show_impressum($btn) {
+function show_imprint($btn) {
     hide_content_box('0.5s linear', function() {
         $btn
         .text('Back')
         .one('click', function() { show_content($btn); });
 
-        $('#content > section:not(#impressum)').css('display', 'none');
-        $('#content > section#impressum').css('display', 'block');
+        $('#content > section:not(#imprint)').css('display', 'none');
+        $('#content > section#imprint').css('display', 'block');
         show_content_box('0.5s linear');
     });
 }
@@ -118,10 +118,10 @@ function show_content($btn) {
     hide_content_box('0.5s linear', function() {
         $btn
         .text('Impressum')
-        .one('click', function() { show_impressum($btn) });
+        .one('click', function() { show_imprint($btn) });
 
-        $('#content > section#impressum').css('display', 'none');
-        $('#content > section:not(#impressum)').css('display', 'block');
+        $('#content > section#imprint').css('display', 'none');
+        $('#content > section:not(#imprint)').css('display', 'block');
         show_content_box('0.5s linear');
     });
 }
