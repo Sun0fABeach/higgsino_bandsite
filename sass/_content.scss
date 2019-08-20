@@ -137,8 +137,12 @@ main {
     }
 
     #imprint {
-      p {
+      div {
         line-height: 1.7;
+        margin: 1rem 0;
+      }
+      address {
+        font-style: normal;
       }
     }
 
