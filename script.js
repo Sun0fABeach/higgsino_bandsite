@@ -117,7 +117,7 @@ function show_imprint($btn) {
 function show_content($btn) {
     hide_content_box('0.5s linear', function() {
         $btn
-        .text('Impressum')
+        .text('Imprint')
         .one('click', function() { show_imprint($btn) });
 
         $('#content > section#imprint').css('display', 'none');
