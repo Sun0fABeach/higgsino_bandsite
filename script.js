@@ -27,7 +27,10 @@ $(document).ready(function() {
     });
 
     $('#toggle-imprint').one('click', function() {
-        show_imprint($(this));
+        show_imprint();
+    });
+    $('#toggle-privacy').one('click', function() {
+        show_privacy();
     });
 });
 
@@ -102,26 +105,50 @@ function hide_logo_and_icons() {
     });
 }
 
-function show_imprint($btn) {
+function show_imprint() {
     hide_content_box('0.5s linear', function() {
-        $btn
-        .text('Back')
-        .one('click', function() { show_content($btn); });
+        $('#toggle-privacy')
+            .text('Privacy')
+            .one('click', function() { show_privacy(); });
+        $('#toggle-imprint')
+            .text('Back')
+            .one('click', function() { show_content(); });
 
-        $('#content > section:not(#imprint)').css('display', 'none');
+        $('#content > section#general, section#privacy').css('display', 'none');
         $('#content > section#imprint').css('display', 'block');
+
         show_content_box('0.5s linear');
     });
 }
 
-function show_content($btn) {
+function show_privacy() {
     hide_content_box('0.5s linear', function() {
-        $btn
-        .text('Imprint')
-        .one('click', function() { show_imprint($btn) });
+        $('#toggle-imprint')
+            .text('Imprint')
+            .one('click', function() { show_imprint(); });
+        $('#toggle-privacy')
+            .text('Back')
+            .one('click', function() { show_content(); });
 
-        $('#content > section#imprint').css('display', 'none');
-        $('#content > section:not(#imprint)').css('display', 'block');
+        $('#content > section#general, section#imprint').css('display', 'none');
+        $('#content > section#privacy').css('display', 'block');
+
+        show_content_box('0.5s linear');
+    });
+}
+
+function show_content() {
+    hide_content_box('0.5s linear', function() {
+        $('#toggle-imprint')
+            .text('Imprint')
+            .one('click', function() { show_imprint() });
+        $('#toggle-privacy')
+            .text('Privacy')
+            .one('click', function() { show_privacy(); });
+
+        $('#content > section#imprint, section#privacy').css('display', 'none');
+        $('#content > section#general').css('display', 'block');
+
         show_content_box('0.5s linear');
     });
 }

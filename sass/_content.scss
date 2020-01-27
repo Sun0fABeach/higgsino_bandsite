@@ -14,7 +14,6 @@ main {
     background-image: url(assets/content_background_lowres.jpg);
   }
 
-
   #content {
     display: inline-flex;
     flex-direction: column;
@@ -41,16 +40,11 @@ main {
       font-size: 1rem;
     }
 
-
     section {
       margin: 0 5em;
 
       @include mq-phones-portrait {
         margin: 0 1em;
-      }
-
-      &#imprint {
-        display: none;
       }
     }
 
@@ -68,6 +62,14 @@ main {
     h1 {
       font-size: 3em;
       margin: 1.2em 0 0.6em;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3, h4 {
+      font-size: 1.5rem;
     }
 
     ul {
@@ -137,12 +139,28 @@ main {
     }
 
     #imprint {
+      display: none;
+
       div {
         line-height: 1.7;
         margin: 1rem 0;
       }
       address {
         font-style: normal;
+      }
+    }
+
+    #privacy {
+      display: none;
+      width: 20vw;
+      margin: 0 1em;
+
+      @include mq-phones-portrait {
+        font-size: 0.75rem;
+      }
+
+      @include mq-all-mobile {
+        width: auto; // container takes full width
       }
     }
 
