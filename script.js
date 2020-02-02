@@ -7,30 +7,40 @@ var mute_toggle_icons = {
     unmute: 'fa fa-volume-off'
 };
 
+var transitions = {
+    side_pane_toggle: 'transform 1s ease',
+    side_pane_switch: 'transform 0.5s linear',
+    fast_logo_fade_in: 'opacity 0.5s linear'
+};
+
+var ui = {};
+
 $(document).ready(function() {
-    hide_content_box();
+    init_ui_elements();
+
+    hide_side_pane();
     /* main is initially set invisible via css to avoid flash on page load */
-    $('main').css('visibility', 'visible');
+    ui.$side_pane.css('visibility', 'visible');
 
-    $('.mute-toggle').click(toggle_background_track);
+    ui.$mute_toggles.click(toggle_background_track);
 
-    $('#logo, #menu-icon').click(function open_content() {
-        show_content_box('1s ease');
+    ui.$menu_openers.click(function open_content() {
+        show_side_pane(transitions.side_pane_toggle);
         hide_logo_and_icons();
-        $('#sound-icon').off(); // prevent clickable hidden icon
+        ui.$background_sound_icon.off(); // prevent clickable hidden icon
     });
 
-    $('#menu-close').click(function() {
-        hide_content_box('1s ease');
+    ui.$menu_close.click(function() {
+        hide_side_pane(transitions.side_pane_toggle);
         display_logo_and_icons();
-        $('#sound-icon').click(toggle_background_track);
+        ui.$background_sound_icon.click(toggle_background_track);
     });
 
-    $('#toggle-imprint').one('click', function() {
-        show_imprint();
+    ui.$toggle_imprint.one('click', function() {
+        switch_to_imprint();
     });
-    $('#toggle-privacy').one('click', function() {
-        show_privacy();
+    ui.$toggle_privacy.one('click', function() {
+        switch_to_privacy();
     });
 });
 
@@ -45,16 +55,34 @@ $(window).on('load', function() {
        to make it work on refresh for certain browsers. */
     setTimeout(function() {
         if(!get_player().paused)
-            $('.mute-toggle').css('display', 'inline-block');
+            ui.$mute_toggles.css('display', 'inline-block');
     }, 100);
 
-    $('#background-pic').css('opacity', '0.8');
-    $('#background').css('animation', 'blur 700ms ease-in 9s');
+    ui.$background_pic.css('opacity', '0.8');
+    ui.$background.css('animation', 'blur 700ms ease-in 9s');
 });
 
 
+function init_ui_elements() {
+    ui.$background = $('#background');
+    ui.$background_pic = $('#background-pic');
+    ui.$logo = $('#logo');
+    ui.$side_pane = $('main');
+    ui.$audio = $('audio');
+    ui.$mute_toggles = $('.mute-toggle');
+    ui.$background_sound_icon = $('#sound-icon');
+    ui.$menu_openers = $('#logo, #menu-icon');
+    ui.$menu_close = $('#menu-close');
+    ui.$toggle_imprint = $('#toggle-imprint');
+    ui.$toggle_privacy = $('#toggle-privacy');
+    ui.$hide_on_menu_open = $('.hide-on-menu-open');
+    ui.$section_general = $('#content > section#general');
+    ui.$section_imprint = $('#content > section#imprint');
+    ui.$section_privacy = $('#content > section#privacy');
+}
+
 function toggle_background_track() {
-    var $mute_icons = $('.mute-toggle').children('i');
+    var $mute_icons = ui.$mute_toggles.children('i');
     var player = get_player();
     if(player.muted) {
         player.muted = false;
@@ -65,32 +93,8 @@ function toggle_background_track() {
     }
 }
 
-function show_content_box(transition_behavior) {
-    $('#background').css('animation', '');
-    $('main').css({
-        transition: 'transform ' + transition_behavior,
-        transform: 'translateX(0)'
-    });
-}
-
-function hide_content_box(transition_behavior, callback) {
-    $('main').css({
-        transition: transition_behavior ?
-            'transform ' + transition_behavior : null,
-        transform: 'translateX(-' + $('main').outerWidth() + 'px)'
-    });
-    if(callback) {
-        $('main').on('transitionend', function(event) {
-            if(event.target.nodeName.toLowerCase() === 'main') {
-                $('main').off();
-                callback();
-            }
-        });
-    }
-}
-
 function display_logo_and_icons() {
-    $('.hide-on-menu-open').css({
+    ui.$hide_on_menu_open.css({
         opacity: '1',
         cursor: 'pointer'
     });
@@ -98,63 +102,86 @@ function display_logo_and_icons() {
 
 function hide_logo_and_icons() {
     // overwrite initial logo fade-in transition (make it faster):
-    $('#logo').css('transition', 'opacity 0.5s linear');
-    $('.hide-on-menu-open').css({
+    ui.$logo.css('transition', transitions.fast_logo_fade_in);
+    ui.$hide_on_menu_open.css({
         opacity: '0',
         cursor: 'auto'
     });
 }
 
-function show_imprint() {
-    hide_content_box('0.5s linear', function() {
-        $('#toggle-privacy')
-            .text('Privacy')
-            .one('click', function() { show_privacy(); });
-        $('#toggle-imprint')
-            .text('Back')
-            .one('click', function() { show_content(); });
-
-        $('#content > section#general, section#privacy').css('display', 'none');
-        $('#content > section#imprint').css('display', 'block');
-
-        show_content_box('0.5s linear');
+function show_side_pane(transition_behavior) {
+    ui.$background.css('animation', ''); // cancel blur
+    ui.$side_pane.css({
+        transition: transition_behavior,
+        transform: 'translateX(0)'
     });
 }
 
-function show_privacy() {
-    hide_content_box('0.5s linear', function() {
-        $('#toggle-imprint')
-            .text('Imprint')
-            .one('click', function() { show_imprint(); });
-        $('#toggle-privacy')
+function hide_side_pane(transition_behavior, callback) {
+    ui.$side_pane.css({
+        transition: transition_behavior || null,
+        transform: 'translateX(-' + ui.$side_pane.outerWidth() + 'px)'
+    });
+    if(callback) {
+        ui.$side_pane.on('transitionend', function(event) {
+            if(event.target.nodeName.toLowerCase() === 'main') {
+                ui.$side_pane.off();
+                callback();
+            }
+        });
+    }
+}
+
+function switch_to_imprint() {
+    hide_side_pane(transitions.side_pane_switch, function() {
+        ui.$toggle_privacy
+            .text('Privacy')
+            .one('click', function() { switch_to_privacy(); });
+        ui.$toggle_imprint
             .text('Back')
-            .one('click', function() { show_content(); });
+            .one('click', function() { switch_to_content(); });
 
-        $('#content > section#general, section#imprint').css('display', 'none');
-        $('#content > section#privacy').css('display', 'block');
+        ui.$section_general.add(ui.$section_privacy).css('display', 'none');
+        ui.$section_imprint.css('display', 'block');
 
-        show_content_box('0.5s linear');
+        show_side_pane(transitions.side_pane_switch);
     });
 }
 
-function show_content() {
-    hide_content_box('0.5s linear', function() {
-        $('#toggle-imprint')
+function switch_to_privacy() {
+    hide_side_pane(transitions.side_pane_switch, function() {
+        ui.$toggle_imprint
             .text('Imprint')
-            .one('click', function() { show_imprint() });
-        $('#toggle-privacy')
+            .one('click', function() { switch_to_imprint(); });
+        ui.$toggle_privacy
+            .text('Back')
+            .one('click', function() { switch_to_content(); });
+
+        ui.$section_general.add(ui.$section_imprint).css('display', 'none');
+        ui.$section_privacy.css('display', 'block');
+
+        show_side_pane(transitions.side_pane_switch);
+    });
+}
+
+function switch_to_content() {
+    hide_side_pane(transitions.side_pane_switch, function() {
+        ui.$toggle_imprint
+            .text('Imprint')
+            .one('click', function() { switch_to_imprint() });
+        ui.$toggle_privacy
             .text('Privacy')
-            .one('click', function() { show_privacy(); });
+            .one('click', function() { switch_to_privacy(); });
 
-        $('#content > section#imprint, section#privacy').css('display', 'none');
-        $('#content > section#general').css('display', 'block');
+        ui.$section_imprint.add(ui.$section_privacy).css('display', 'none');
+        ui.$section_general.css('display', 'block');
 
-        show_content_box('0.5s linear');
+        show_side_pane(transitions.side_pane_switch);
     });
 }
 
 function get_player() {
-    return $('audio').get(0);
+    return ui.$audio.get(0);
 }
 
 })(jQuery);
