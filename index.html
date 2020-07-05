@@ -23,14 +23,11 @@
 
     <!-- background image preloaded since to be displayed immediately -->
     <link rel="preload" href="assets/images/background_lowres.jpg" as="image" type="image/jpeg"
-          media="(max-device-width: 767px)">
+          media="(max-width: 767px)">
     <link rel="preload" href="assets/images/background_medres.jpg" as="image" type="image/jpeg"
-          media="(min-device-width: 768px) and (max-device-width: 1366px)">
+          media="(min-width: 768px) and (max-width: 1366px)">
     <link rel="preload" href="assets/images/background_hires.jpg" as="image" type="image/jpeg"
-          media="(min-device-width: 1367px)">
-
-    <!-- here we assume that browsers able to handle preloads will
-         be able to handle woff2 webfonts, so we load that file type. -->
+          media="(min-width: 1367px)">
 
     <!-- font-awesome webfont preloaded, since immediately required for top level icons -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0"
