@@ -22,11 +22,11 @@
     <!-- /build -->
 
     <!-- background image preloaded since to be displayed immediately -->
-    <link rel="preload" href="assets/background_lowres.jpg" as="image" type="image/jpeg"
+    <link rel="preload" href="assets/images/background_lowres.jpg" as="image" type="image/jpeg"
           media="(max-device-width: 767px)">
-    <link rel="preload" href="assets/background_medres.jpg" as="image" type="image/jpeg"
+    <link rel="preload" href="assets/images/background_medres.jpg" as="image" type="image/jpeg"
           media="(min-device-width: 768px) and (max-device-width: 1366px)">
-    <link rel="preload" href="assets/background_hires.jpg" as="image" type="image/jpeg"
+    <link rel="preload" href="assets/images/background_hires.jpg" as="image" type="image/jpeg"
           media="(min-device-width: 1367px)">
 
     <!-- here we assume that browsers able to handle preloads will
@@ -38,10 +38,10 @@
   </head>
   <body>
     <audio autoplay loop preload="none">
-      <source src="assets/Loop.mp3" type="audio/mpeg">
-      <source src="assets/Loop.aac" type="audio/x-aac">
-      <source src="assets/Loop.ogg" type="audio/ogg">
-      <source src="assets/Loop.wav" type="audio/wav">
+      <source src="assets/audio/Loop.mp3" type="audio/mpeg">
+      <source src="assets/audio/Loop.aac" type="audio/x-aac">
+      <source src="assets/audio/Loop.ogg" type="audio/ogg">
+      <source src="assets/audio/Loop.wav" type="audio/wav">
     </audio>
 
     <div id="background">
@@ -52,7 +52,7 @@
       <span id="sound-icon" class="click-target mute-toggle hide-on-menu-open">
         <i class="fa fa-volume-up" aria-hidden="true"></i>
       </span>
-      <img id="logo" class="hide-on-menu-open" src="assets/logo.png" alt="Higgsino logo">
+      <img id="logo" class="hide-on-menu-open" src="assets/images/logo.png" alt="Higgsino logo">
     </div>
 
 

@@ -2,16 +2,16 @@ main {
   position: absolute;
   visibility: hidden;
   height: 100%;
-  background: url(assets/content_background_hires.jpg) right center/cover;
+  background: url(assets/images/content_background_hires.jpg) right center/cover;
 
   @include mq-all-mobile {
     width: 100%;
   }
   @include mq-pads {
-    background-image: url(assets/content_background_medres.jpg);
+    background-image: url(assets/images/content_background_medres.jpg);
   }
   @include mq-phones {
-    background-image: url(assets/content_background_lowres.jpg);
+    background-image: url(assets/images/content_background_lowres.jpg);
   }
 
   #content {
