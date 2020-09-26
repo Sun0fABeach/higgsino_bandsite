@@ -41,6 +41,34 @@ grunt.initConfig({
             }
         }
     },
+    copy: {
+        build: {
+            files: [{
+                expand: true,
+                cwd: 'assets',
+                src: [
+                    'audio/Loop.*',
+                    'favicon.ico',
+                    'images/logo.png',
+                    'images/background_hires.jpg',
+                    'images/background_medres.jpg',
+                    'images/background_lowres.jpg',
+                    'images/content_background_hires.jpg',
+                    'images/content_background_medres.jpg',
+                    'images/content_background_lowres.jpg',
+                    'fonts/geomanist/regular/geomanist-regular-webfont.woff*',
+                    'fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff*',
+                    '../evolife/**',
+                    '../robots.txt'
+                ],
+                dest: 'build/assets'
+            }, {
+                expand: true,
+                src: ['jquery-4.0.0.custom.min.js'],
+                dest: 'build'
+            }]
+        }
+    },
     processhtml: {
         options: {},
         build: {
@@ -59,28 +87,6 @@ grunt.initConfig({
             files: {
                 'build/index.html': 'build/index.html'
             }
-        }
-    },
-    copy: {
-        build: {
-            expand: true,
-            cwd: 'assets',
-            src: [
-                'audio/Loop.*',
-                'favicon.ico',
-                'images/logo.png',
-                'images/background_hires.jpg',
-                'images/background_medres.jpg',
-                'images/background_lowres.jpg',
-                'images/content_background_hires.jpg',
-                'images/content_background_medres.jpg',
-                'images/content_background_lowres.jpg',
-                'fonts/geomanist/regular/geomanist-regular-webfont.woff*',
-                'fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff*',
-                '../evolife/**',
-                '../robots.txt'
-            ],
-            dest: 'build/assets'
         }
     },
     clean: ['build', 'style.css'],
@@ -105,7 +111,7 @@ grunt.loadNpmTasks('grunt-contrib-htmlmin');
 grunt.loadNpmTasks('grunt-contrib-connect');
 
 grunt.registerTask('default', [
-    'sass', 'autoprefixer', 'cssmin', 'uglify', 'processhtml', 'htmlmin', 'copy'
+    'sass', 'autoprefixer', 'cssmin', 'uglify', 'copy', 'processhtml', 'htmlmin'
 ]);
 
 };
