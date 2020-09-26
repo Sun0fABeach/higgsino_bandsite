@@ -17,49 +17,23 @@ var ui = {};
 
 $(document).ready(function() {
     init_ui_elements();
+    init_event_handlers();
 
     hide_side_pane();
+    display_logo_and_icons();
+
+    ui.$background_pic.css('opacity', '0.8');
+    ui.$background.css('animation', 'blur 700ms ease-in 9s');
     /* main is initially set invisible via css to avoid flash on page load */
     ui.$side_pane.css('visibility', 'visible');
-
-    ui.$mute_toggles.click(toggle_background_track);
-
-    ui.$menu_openers.click(function open_content() {
-        show_side_pane(transitions.side_pane_toggle);
-        hide_logo_and_icons();
-        ui.$background_sound_icon.off(); // prevent clickable hidden icon
-    });
-
-    ui.$menu_close.click(function() {
-        hide_side_pane(transitions.side_pane_toggle);
-        display_logo_and_icons();
-        ui.$background_sound_icon.click(toggle_background_track);
-    });
-
-    ui.$toggle_imprint.one('click', function() {
-        switch_to_imprint();
-    });
-    ui.$toggle_privacy.one('click', function() {
-        switch_to_privacy();
-    });
-});
-
-
-/** launch initial fade-in of logo and backdrop + subsequent blur animation
- *  once all assets have been loaded. also decide if sound button is needed.
- */
-$(window).on('load', function() {
-    display_logo_and_icons();
 
     /* show mute icon if background track is being autoplayed. delay check
        to make it work on refresh for certain browsers. */
     setTimeout(function() {
-        if(!get_player().paused)
+        if(!get_player().paused) {
             ui.$mute_toggles.css('display', 'inline-block');
+        }
     }, 100);
-
-    ui.$background_pic.css('opacity', '0.8');
-    ui.$background.css('animation', 'blur 700ms ease-in 9s');
 });
 
 
@@ -80,6 +54,29 @@ function init_ui_elements() {
     ui.$section_imprint = $('#content > section#imprint');
     ui.$section_privacy = $('#content > section#privacy');
 }
+
+function init_event_handlers() {
+    ui.$mute_toggles.click(toggle_background_track);
+
+    ui.$menu_openers.click(function open_content() {
+        show_side_pane(transitions.side_pane_toggle);
+        hide_logo_and_icons();
+        ui.$background_sound_icon.off(); // prevent clickable hidden icon
+    });
+
+    ui.$menu_close.click(function() {
+        hide_side_pane(transitions.side_pane_toggle);
+        display_logo_and_icons();
+        ui.$background_sound_icon.click(toggle_background_track);
+    });
+
+    ui.$toggle_imprint.one('click', function() {
+        switch_to_imprint();
+    });
+    ui.$toggle_privacy.one('click', function() {
+        switch_to_privacy();
+    });
+};
 
 function toggle_background_track() {
     var $mute_icons = ui.$mute_toggles.children('i');
