@@ -1,14 +1,38 @@
 @font-face {
-    font-family: $header_font;
-    src: url('assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff2') format('woff2'),
-         url('assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: $header_font;
+  src: url('assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff2') format('woff2'),
+          url('assets/fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: $text_font;
-    src: url('assets/fonts/geomanist/regular/geomanist-regular-webfont.woff2') format('woff2'),
-         url('assets/fonts/geomanist/regular/geomanist-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: $text_font;
+  src: url('assets/fonts/geomanist/regular/geomanist-regular-webfont.woff2') format('woff2'),
+        url('assets/fonts/geomanist/regular/geomanist-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
+@font-face {
+  font-family: 'fontello';
+  src: url('assets/fonts/font_awesome/fontello.woff2?53975110') format('woff2'),
+        url('assets/fonts/font_awesome/fontello.woff?53975110') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+}
+
+.icon-cancel-circled:before { content: '\e800'; }
+.icon-volume-up:before { content: '\e801'; }
+.icon-volume-off:before { content: '\e802'; }
+.icon-mail:before { content: '\e803'; }
+.icon-link-ext:before { content: '\f08e'; }
+.icon-menu:before { content: '\f0c9'; }

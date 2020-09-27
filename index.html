@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="style.css">
     <!-- /build -->
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-          rel="stylesheet">
-
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
 
     <!-- background image preloaded since to be displayed immediately -->
@@ -26,9 +23,9 @@
     <link rel="preload" href="assets/images/background_hires.jpg" as="image" type="image/jpeg"
           media="(min-width: 1367px)">
 
-    <!-- font-awesome webfont preloaded, since immediately required for top level icons -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0"
-          type="font/woff2" as="font" crossorigin="anonymous">
+    <!-- icon font preloaded, since immediately required for top level icons -->
+    <link rel="preload" href="assets/fonts/font_awesome/fontello.woff2?53975110" as="font"
+          type="font/woff2" crossorigin="anonymous">
   </head>
   <body>
     <audio autoplay loop preload="none">
@@ -41,10 +38,10 @@
     <div id="background">
       <div id="background-pic"></div>
       <span id="menu-icon" class="click-target hide-on-menu-open">
-        <i class="fa fa-bars" aria-hidden="true"></i>
+        <i class="icon-menu"></i>
       </span>
       <span id="sound-icon" class="click-target mute-toggle hide-on-menu-open">
-        <i class="fa fa-volume-up" aria-hidden="true"></i>
+        <i class="icon-volume-up"></i>
       </span>
       <img id="logo" class="hide-on-menu-open" src="assets/images/logo.png" alt="Higgsino logo">
     </div>
@@ -56,7 +53,7 @@
         <div class="icon-row">
           <div>
             <span class="click-target mute-toggle">
-              <i class="fa fa-volume-up" aria-hidden="true"></i>
+              <i class="icon-volume-up"></i>
             </span>
           </div>
         </div>
@@ -92,19 +89,19 @@
             <ul>
               <li>
                 <a href="https://www.facebook.com/higgsinoband" target="_blank" rel="noopener">
-                  <i class="fa fa-external-link" aria-hidden="true"></i>
+                  <i class="icon-link-ext"></i>
                   <span>Facebook</span>
                 </a>
               </li>
               <li>
                 <a href="https://higgsino.bandcamp.com/" target="_blank" rel="noopener">
-                  <i class="fa fa-external-link" aria-hidden="true"></i>
+                  <i class="icon-link-ext"></i>
                   <span>Bandcamp</span>
                 </a>
               </li>
               <li>
                 <a href="https://soundcloud.com/higgsino" target="_blank" rel="noopener">
-                  <i class="fa fa-external-link" aria-hidden="true"></i>
+                  <i class="icon-link-ext"></i>
                   <span>Soundcloud</span>
                 </a>
               </li>
@@ -114,7 +111,7 @@
             <ul id="mail">
               <li>
                 <a href="mailto:contact@higgsino.de">
-                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  <i class="icon-mail"></i>
                   <span>contact@higgsino.de</span>
                 </a>
               </li>
@@ -207,7 +204,7 @@
         <div class="icon-row">
           <div>
             <span class="click-target" id="menu-close">Close
-              <i class="fa fa-times-circle" aria-hidden="true"></i>
+              <i class="icon-cancel-circled"></i>
             </span>
             <span class="click-target" id="toggle-privacy">Privacy</span>
             <span class="click-target" id="toggle-imprint">Imprint</span>

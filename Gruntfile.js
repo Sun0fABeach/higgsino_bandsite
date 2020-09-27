@@ -58,6 +58,7 @@ grunt.initConfig({
                     'images/content_background_lowres.jpg',
                     'fonts/geomanist/regular/geomanist-regular-webfont.woff*',
                     'fonts/cast_iron_condensed/cast_iron-condensed-webfont.woff*',
+                    'fonts/font_awesome/fontello.woff*',
                     '../evolife/**',
                     '../robots.txt'
                 ],
