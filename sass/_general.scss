@@ -11,6 +11,9 @@ body {
   /* don't let any animations cause scrollbars */
   overflow: hidden;
   background-color: black;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @mixin icon-hover-styles {
