@@ -13,6 +13,8 @@ var transitions = {
     fast_logo_fade_in: 'opacity 0.5s linear'
 };
 
+var side_pane_open = false;
+
 var ui = {};
 
 $(document).ready(function() {
@@ -76,6 +78,13 @@ function init_event_handlers() {
     ui.$toggle_privacy.one('click', function() {
         switch_to_privacy();
     });
+
+    var mqList = window.matchMedia('(orientation: landscape)');
+    mqList.addListener(function() {
+        if(!side_pane_open) {
+            hide_side_pane(); // hide again to adjust leftward shift outside viewport
+        }
+    });
 };
 
 function toggle_background_track() {
@@ -112,11 +121,12 @@ function show_side_pane(transition_behavior) {
         transition: transition_behavior,
         transform: 'translateX(0)'
     });
+    side_pane_open = true;
 }
 
 function hide_side_pane(transition_behavior, callback) {
     ui.$side_pane.css({
-        transition: transition_behavior || null,
+        transition: transition_behavior || 'unset',
         transform: 'translateX(-' + ui.$side_pane.outerWidth() + 'px)'
     });
     if(callback) {
@@ -127,6 +137,7 @@ function hide_side_pane(transition_behavior, callback) {
             }
         });
     }
+    side_pane_open = false;
 }
 
 function switch_to_imprint() {
