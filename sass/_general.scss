@@ -17,9 +17,11 @@ body {
 }
 
 @mixin icon-hover-styles {
-  &:hover {
-    cursor: pointer;
-    color: $hover_color;
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+      color: $hover_color;
+    }
   }
 }
 
