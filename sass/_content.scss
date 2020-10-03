@@ -20,6 +20,7 @@ main {
     justify-content: space-between;
     box-sizing: border-box; // so scrollbar is hidden when box is closed
     overflow-y: auto;
+    width: 29rem;
     height: 100%;
     padding: 1.5em 2em 0; // bottom margin is set via last .icon-row (necessary due to firefox)
     background-color: rgba(9, 18, 18, 0.8);
@@ -41,11 +42,7 @@ main {
     }
 
     section {
-      margin: 0 5em;
-
-      @include mq-phones-portrait {
-        margin: 0 1em;
-      }
+      margin: 0 auto;
     }
 
     a {
@@ -154,8 +151,6 @@ main {
 
     #privacy {
       display: none;
-      width: 20vw;
-      margin: 0 1em;
 
       ul {
         padding-left: 1.125rem;
