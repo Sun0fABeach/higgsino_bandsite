@@ -1,7 +1,8 @@
 main {
-  position: absolute;
-  visibility: hidden;
+  position: fixed;
+  top: 0;
   height: 100%;
+  visibility: hidden;
   background: url(assets/images/content_background_hires.jpg) right center/cover;
 
   @include mq-all-mobile {
