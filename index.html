@@ -15,14 +15,6 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
 
-    <!-- background image preloaded since to be displayed immediately -->
-    <link rel="preload" href="assets/images/background_lowres.jpg" as="image" type="image/jpeg"
-          media="(max-width: 767px)">
-    <link rel="preload" href="assets/images/background_medres.jpg" as="image" type="image/jpeg"
-          media="(min-width: 768px) and (max-width: 1366px)">
-    <link rel="preload" href="assets/images/background_hires.jpg" as="image" type="image/jpeg"
-          media="(min-width: 1367px)">
-
     <!-- icon font preloaded, since immediately required for top level icons -->
     <link rel="preload" href="assets/fonts/font_awesome/fontello.woff2?53975110" as="font"
           type="font/woff2" crossorigin="anonymous">
@@ -36,7 +28,14 @@
     </audio>
 
     <div id="background">
-      <div id="background-pic"></div>
+      <img id="background-pic"
+        srcset="assets/images/background_lowres.jpg 1024w,
+                assets/images/background_medres.jpg 1590w,
+                assets/images/background_hires.jpg 2048w"
+        sizes="100vw"
+        src="assets/images/background_medres.jpg"
+        alt="Foggy forest"
+      >
       <span id="menu-icon" class="click-target hide-on-menu-open">
         <i class="icon-menu"></i>
       </span>
@@ -49,7 +48,6 @@
 
     <main>
       <div id="content">
-
         <div class="icon-row">
           <div>
             <span class="click-target mute-toggle">

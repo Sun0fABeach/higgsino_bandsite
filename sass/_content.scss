@@ -1,35 +1,34 @@
 main {
   position: fixed;
   top: 0;
-  height: 100%;
-  visibility: hidden;
+  bottom: 0;
+  width: 29rem;
+  visibility: hidden; // to avoid flash on page load
   background: url(assets/images/content_background_hires.jpg) right center/cover;
 
-  @include mq-all-mobile {
-    width: 100%;
-  }
   @include mq-pads {
     background-image: url(assets/images/content_background_medres.jpg);
   }
   @include mq-phones {
     background-image: url(assets/images/content_background_lowres.jpg);
   }
+  @include mq-all-mobile {
+    width: 100%;
+  }
 
   #content {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
     box-sizing: border-box; // so scrollbar is hidden when box is closed
     overflow-y: auto;
-    width: 29rem;
-    height: 100%;
     padding: 1.5em 2em 0; // bottom margin is set via last .icon-row (necessary due to firefox)
     background-color: rgba(9, 18, 18, 0.8);
     color: $text_color;
     font: bold 1rem $text_font_style;
 
     @include mq-all-mobile {
-      width: 100%;
       text-align: center;
     }
     @include mq-pads {
