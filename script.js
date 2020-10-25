@@ -21,13 +21,10 @@ $(document).ready(function() {
     init_ui_elements();
     init_event_handlers();
 
-    hide_side_pane();
     display_logo_and_icons();
 
     ui.$background_pic.css('opacity', '0.8');
     ui.$background.css('animation', 'blur 700ms ease-in 9s');
-    /* main is initially set invisible via css to avoid flash on page load */
-    ui.$side_pane.css('visibility', 'visible');
 
     /* show mute icon if background track is being autoplayed. delay check
        to make it work on refresh for certain browsers. */
@@ -79,10 +76,9 @@ function init_event_handlers() {
         switch_to_privacy();
     });
 
-    var mqList = window.matchMedia('(orientation: landscape)');
-    mqList.addListener(function() {
-        if(!side_pane_open) {
-            hide_side_pane(); // hide again to adjust leftward shift outside viewport
+    $(window).on('resize', function() {
+        if(side_pane_open) {
+            adjust_open_side_pane();
         }
     });
 };
@@ -119,15 +115,15 @@ function show_side_pane(transition_behavior) {
     ui.$background.css('animation', ''); // cancel blur
     ui.$side_pane.css({
         transition: transition_behavior,
-        transform: 'translateX(0)'
+        transform: 'translateX(' + ui.$side_pane.outerWidth() + 'px)'
     });
     side_pane_open = true;
 }
 
 function hide_side_pane(transition_behavior, callback) {
     ui.$side_pane.css({
-        transition: transition_behavior || 'unset',
-        transform: 'translateX(-' + ui.$side_pane.outerWidth() + 'px)'
+        transition: transition_behavior,
+        transform: 'translateX(0)'
     });
     if(callback) {
         ui.$side_pane.on('transitionend', function(event) {
@@ -138,6 +134,13 @@ function hide_side_pane(transition_behavior, callback) {
         });
     }
     side_pane_open = false;
+}
+
+function adjust_open_side_pane() {
+    ui.$side_pane.css({
+        transition: 'unset',
+        transform: 'translateX(' + ui.$side_pane.outerWidth() + 'px)'
+    });
 }
 
 function switch_to_imprint() {

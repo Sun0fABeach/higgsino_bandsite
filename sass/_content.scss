@@ -2,8 +2,8 @@ main {
   position: fixed;
   top: 0;
   bottom: 0;
+  right: 100vw;
   width: 29rem;
-  visibility: hidden; // to avoid flash on page load
   background: url(assets/images/content_background_hires.jpg) right center/cover;
 
   @include mq-pads {
