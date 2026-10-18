@@ -17,7 +17,7 @@
   "author": "Markus Appel",
   "license": "ISC",
   "dependencies": {
-    "compression": "^1.8.1",
+    "compression": "^1.8.2",
     "express": "^5.2.1",
     "grunt": "^1.6.3",
     "grunt-autoprefixer": "^3.0.4",
